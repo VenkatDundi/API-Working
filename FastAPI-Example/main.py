@@ -1,12 +1,14 @@
+import os
 from fastapi import FastAPI
 import json
 
 app = FastAPI()             # Initializing the Fast API
 
-subcategory_File = r"C:\Users\gnani\Downloads\DWH_Gpt\Global_Electronics_Retailer\SubCategory.json"                 # File Path
+Current_Directory = os.path.dirname(os.path.abspath(__file__))         # Capture Current Directory
+File_Path = os.path.join(Current_Directory, "SubCategory.json")        # Creates a file path for the JSON file
 
 # Load JSON
-with open(subcategory_File, "r") as f:
+with open(File_Path, "r") as f:
     subcategories = json.load(f)
 
 #print(subcategories)           # View the Json format of the Subcategories file
